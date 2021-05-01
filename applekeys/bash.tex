@@ -1,0 +1,150 @@
+\section{Bash}
+
+\textit{The \say{\ul{b}ourne \ul{a}gain \ul{sh}ell}; descending bourne }\textbf{sh}\textit{, which supplanted }\textbf{csh}\textit{, the \say{C shell}.}
+
+\entry{35mm}{echo \$SHELL}{current shell}\\
+\entry{35mm}{chsh /bin/sh}{$\Delta$ default}\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Wildcards, Expansion, Quoting, \& Escaping}
+
+\begin{tabular}{l   l}
+    \textasciitilde & expand to user\textquotesingle s home dir \\
+    ? & match a single char\\
+    * & match string of chars\\
+    {[ \,\,\, ]} & any char in set\\
+    {[! \,\, ]} & any char not in set\\
+    \{ \,\,\, \} & expands to all alternatives \\
+    \textbackslash <char>  & escape <char> to normal \\
+    \textquotesingle <wild> \textquotesingle & wildcard $\to$ literal \\
+    \textbackslash & line continuation \\
+\end{tabular}
+
+
+\textit{Examples:}\\
+\entry{35mm}{[abc]}{set match}\\
+\entry{35mm}{[a-c]}{same as above}\\
+\entry{35mm}{\textasciitilde alice}{alice\textquotesingle s home}\\
+\entry{35mm}{ls *.\{c,h,o\}}{C program files}\\
+\entry{35mm}{find . -name \textquotesingle *.c \textquotesingle }{{\footnotesize delay wildcd expand}}\\
+\entry{35mm}{echo \textquotesingle 2 * 3 > 5\textquotesingle}{wildcd $\to$ literals}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Control Keys}
+
+{\footnotesize 
+\begin{tabular}{l  l}
+    ctrl-c & stop current command \\
+    ctrl-d & end of input \\ 
+    ctrl-\textbackslash & quit \\ 
+    ctrl-s & halt output to screen \\ 
+    ctrl-q & restart output to screen \\ 
+    ctrl-? & erase last character \\ 
+    ctrl-u & erase entire command line \\ 
+    ctrl-z & suspend current command \\ 
+\end{tabular}}
+
+\entry{35mm}{ctrl-c}{}\\
+\entry{35mm}{ctrl-d}{}\\
+\entry{35mm}{ctrl-\textbackslash}{}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Emacs-mode editing}
+\textit{The default command-line editor; change with:}\\
+\entry{35mm}{set -o vi}{\dots to vi editor}\\
+
+\textit{Character movement / editing:}\\
+\begin{tabular}{l  l}
+    ctrl-b      & back one char \\
+    ctrl-f      & forward one char \\
+    del         & delete one char back \\
+    ctrl-d      & delete one char forward \\
+\end{tabular}
+
+\textit{Word movement / editing:}\\
+\begin{tabular}{l  l}
+    esc-b       & move one word back \\
+    esc-f       & move one word forward \\
+    esc-del     & kill one word back \\
+    esc-ctrl-h  & kill one word back \\
+    esc-d       & kill one word forward \\
+    ctrl-y      & yank last item killed 
+\end{tabular}
+
+\textit{Line \& History commands:}\\
+\begin{tabular}{l  l}
+    ctrl-a      & move to line begin \\
+    ctrl-f      & move to end of line \\
+    ctrl-k      & kill to end of line \\
+    ctrl-p      & move up line \\
+    ctrl-n      & move to next line \\
+    ctrl-r      & search backward \\
+    esc-<       & move to 1st hist line \\
+    esc->       & move to last hist line \\
+    esc-?       & expand all choices \\ 
+\end{tabular}
+
+
+\textit{Completion commands:}\\
+\begin{tabular}{l  l}
+    <tab>       & general text completion \\
+    esc-?       & expand all choices \\ 
+    esc-/       & filename completion \\
+    ctrl-x      & list filename possibilities \\
+    esc-\textasciitilde     & username completion \\
+    ctrl-x \textasciitilde  & list username possibilities \\
+    esc-\$      & attempt variable completion \\
+    ctrl-x \$   & list possible variables \\
+    esc-@       & attempt hostname completion \\
+    ctrl-x @    & list hostname possibilities \\
+    esc-!       & attempt command completion \\
+    ctrl-x !    & list possible commands \\
+    esc-<tab>   & attempt completion from hist \\
+\end{tabular}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Variables}
+
+\entry{35mm}{}{}\\
+\entry{35mm}{}{}\\
+\entry{35mm}{}{}\\
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Conditionals}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Command-line Processing}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{File Redirection}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Process Management}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{}
+
