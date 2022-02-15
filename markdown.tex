@@ -1,0 +1,93 @@
+\section{Markdown}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Headers}
+
+\entry{35mm}{\# \, Title}{H1 header}\\
+\entry{35mm}{\#\#\, Title}{H2 header}\\
+\entry{35mm}{\#\#\#\, Title}{H3 header}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Emphasis}
+
+\entry{35mm}{**text**}{bold \textbf{text}}\\
+\entry{35mm}{\_ text\_}{italicized \textit{text}  }\\
+\entry{35mm}{\textasciitilde\textasciitilde text\textasciitilde\textasciitilde}{striken-thru \st{text}}\\
+\entry{35mm}{> text}{quoted text}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Hyperlinks, Images, \& Videos}
+\cde{[http://google.com](click here!)}\\
+\cde{![http://clip.art](pic's subtitle)}\\
+
+\textit{Embed youtube video:}\\
+\cde{[![description]}\\
+\cde{(http://img.youtube.com/vi/myvidid/0.jpg)]}\\
+\cde{(http://www.youtube.com/watch?v=myvidid)}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Lists}
+
+
+\begin{tabular}{l l}
+    \ul{Unordered} & \ul{Ordered} \\
+    \cde{* item1} & \cde{1. item1} \\ 
+    \cde{* item2} & \cde{1. item2} \\
+    \cde{* item3} & \cde{1. item3} \\
+\end{tabular}
+
+\textit{Mixed, Nested lists:}\\
+\cde{1. First major item}\\
+\cde{\phantom{xx} * 1st sub-item}\\
+\entry{35mm}{\phantom{xx} * 2nd sub-item}{whitespace matters!}\\
+\cde{1. Second major item}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Code}
+
+\entry{35mm}{normal \textasciigrave code()\textasciigrave text }{inline}\\
+\entry{35mm}{\textasciigrave\textasciigrave\textasciigrave}{start \dots}\\
+\entry{35mm}{myFunction()\{\}}{code block}\\
+\entry{35mm}{\textasciigrave\textasciigrave\textasciigrave}{\dots end}\\[1mm]
+\textit{In observable, backticks must be escaped (see below), so really, things look more like:}\\ 
+\begin{tabular}{l l}
+    \ul{template literal} & \ul{tagged TL}\\
+    \cde{\textbackslash \textasciigrave\textbackslash \textasciigrave\textbackslash\textasciigrave} & \cde{\textbackslash \textasciigrave\textbackslash \textasciigrave\textbackslash\textasciigrave html} \\
+    \cde{myFunction()\{\}} & \cde{<i>ital</i>} \\
+    \cde{\textbackslash\textasciigrave\textbackslash\textasciigrave\textbackslash\textasciigrave} & \cde{\textbackslash \textasciigrave\textbackslash \textasciigrave\textbackslash\textasciigrave} \\
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Escaping}
+\textit{The following characters must be escaped: \cde{*}, and \cde{>}. Within observable, additionally escape \cde{\textasciigrave}.}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Tables}
+\textit{For all but the simplest tables, embed html, but for simple tables, use raw markdown syntax:}\\
+\entry{40mm}{| head1 | head2 | head3 |}{headers}\\
+\entry{40mm}{|-------|-------|-------|}{horizontal rule}\\
+\entry{40mm}{| val   | val   | val   |}{rows}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Checklists}
+\entry{30mm}{- [ ] Mercury}{unchecked}\\
+\entry{30mm}{- [x] Venus}{checked}\\
+\entry{30mm}{- [x] Earth}{note: '-' for list}\\
+\entry{30mm}{- [ ] Mars}{space $\leftrightarrow$ empty}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://observablehq.com/@mbostock/html-in-markdown}{HTML}}
+\textit{Most html can be embedded successfully. Some idioms are below, the first of which is used to add dynamic html text highlighting:}\\
+\cde{<span \$\{spanStyle('link')\}>*Link*</span> }\\
+\entry{45mm}{<span>\&\# 10004<\textbackslash span>}{unicode char}\\[1mm]
+\entry{35mm}{<dl>}{begin definition list}\\
+\entry{35mm}{<dt></dt>}{definition header}\\
+\entry{35mm}{<dd></dd>}{definition}\\
+\entry{35mm}{</dl>}{end }\\[1mm]
+\entry{48mm}{<figcaption>text</figcaption>}{nice captn}\\
+\entry{48mm}{<figure style='max-width:50px'>}{nice image}\\
+\entry{48mm}{<img src='https://pic.location'>}{}\\
+\entry{48mm}{</figure>}{end}\\
+

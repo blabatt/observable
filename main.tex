@@ -1,8 +1,9 @@
 \documentclass[10pt,landscape]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{tikz}
-\usetikzlibrary{shapes,positioning,arrows,fit,calc,graphs,graphs.standard}
+\usepackage[table]{xcolor}
+%\usepackage{tikz}
+%\usetikzlibrary{shapes,positioning,arrows,fit,calc,graphs,graphs.standard}
 \usepackage[nosf]{kpfonts}
 \usepackage[t1]{sourcesanspro}
 %\usepackage[lf]{MyriadPro}
@@ -15,6 +16,7 @@
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage{microtype}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{mathtools}
 \usepackage{dirtytalk}
 \usepackage{listings}
@@ -25,8 +27,9 @@
 \usepackage{soul}
 \usepackage{menukeys}
 \usepackage{applekeys/applekeys}
-
-\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{tabto}
 
 \let\bar\overline
 \newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
@@ -70,7 +73,13 @@
 \renewcommand{\baselinestretch}{.8}
 \pagestyle{empty}
 
-
+%\newcommand*\rot{\rotatebox{90}}
+\newcolumntype{R}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    l%
+    <{\egroup}%
+}
+\newcommand*\rot{\multicolumn{1}{R{90}{0mm}}}% no optional argument here, please!
 
 
 \global\mdfdefinestyle{header}{%
@@ -102,9 +111,9 @@ leftmargin=1mm,rightmargin=2mm,
     }
 
     
-\newenvironment{code}
-    {\begin{minipage}{4cm}}
-    {\end{minipage}}
+%\newenvironment{code}
+%    {\begin{minipage}{4cm}}
+ %   {\end{minipage}}
     
  
 \newcommand{\entry}[3]{%%%
@@ -121,6 +130,39 @@ leftmargin=1mm,rightmargin=2mm,
     \# #3
 }%%%
 
+
+\newcommand{\subsec}[2]{
+\subsection*{
+\begin{minipage}{32mm}
+{#1}
+\end{minipage}
+[\texttt{#2}]}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% API command for columns of modules       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter 
+\newcommand{\api}{%
+  \begin{footnotesize}
+  \@apii
+}
+\newcommand\@apii{\@ifnextchar\stopapi{\@apiend}{\@apiii}}
+
+\newcommand\@apiii[2]{%
+  \@apiiii{#1}{#2}\hfill
+  \@apii % restart the recursion
+}
+\newcommand\@apiiii[2]{%
+  \begin{minipage}[t]{{#1}}
+  {#2}
+  \end{minipage}}
+\newcommand\@apiend[1]{% The argument is \stopapi
+  \end{footnotesize}
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \lstset{%
   basicstyle=\small\ttfamily,
@@ -259,7 +301,14 @@ leftmargin=1mm,rightmargin=2mm,
 \begin{document}
 \small
 \begin{multicols*}{4}
+\input{stdlib}
+\input{data}
+\input{inputs}
+\input{imports}
+\input{markdown}
+\input{literals}
 \input{shortcuts.tex}
 \input{grammar.tex}
+\input{techniques}
 \end{multicols*}
 \end{document}

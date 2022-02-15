@@ -1,0 +1,50 @@
+\section{\href{https://observablehq.com/@observablehq/introduction-to-data}{Data}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Inline}
+\textit{For small datasets:}\\
+\entry{44mm}{primes = [2,3,5,7,11]}{manual entry}\\
+\entry{44mm}{csv = d3.csvParse(\textasciigrave rawPaste\textasciigrave)}{copy-paste}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://observablehq.com/@observablehq/file-attachments}{Attachments}}
+
+\textit{Attach a file in the UI and then:}\\
+\entry{37mm}{a = FileAttachment(\textquotedbl file\textquotedbl)}{\ul{a}ttachment object}\\
+\entry{37mm}{d = await a.json();}{promised \ul{d}ata}\\
+\entry{37mm}{t = d3.hierarchy(d)}{in-mem \ul{t}ree}\\
+
+\textit{In lieu of d3, }\cde{FileAttachment}\textit{ has its own csv, json, and text parsers that implicitly {\rm\bf await}:}\\
+%\entry{43mm}{j = FileAttachment(\textquotedbl x.json\textquotedbl)}{json}\\
+%\entry{43mm}{t = FileAttachment(\textquotedbl x.txt\textquotedbl)}{text}\\
+\cde{c = FileAttachment(\textquotedbl x.csv\textquotedbl).csv()}\\
+%\entry{43mm}{i = FileAttachment(\textquotedbl x.png\textquotedbl)}{image}\\
+
+\textit{Alternatively, \href{https://observablehq.com/@mbostock/reading-local-files}{upload directly from local f.s.}:}\\
+\cde{viewof file = html\textasciigrave<input type=file>\textasciigrave}\\
+{\footnotesize \cde{html\textasciigrave <img src=\textquotedbl\$\{URL.createObjectURL(file)\}\textquotedbl>\textasciigrave}}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://observablehq.com/@observablehq/databases}{Databases}}
+\textit{Observable is meant to share notebooks and data. It is also great for prototyping. Using the runtime, you may even use it to construct full web-apps. However, notebooks themselves are not meant to serve full applications. Hence, \href{https://observablehq.com/@observablehq/databases}{UI-created db connections} are only allowed for private notebooks.}\\
+\cde{npm install -g @observablehq/database-proxy}\\
+\entry{45mm}{\dots}{\href{https://observablehq.com/@observablehq/self-hosted-database-proxies}{run locally}}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://observablehq.com/@observablehq/secrets}{Secrets}}
+\textit{Use the UI to create a secret (a la Github). Then:}\\
+\entry{30mm}{Secret(\textasciigrave MY\_KEY\textasciigrave)}{expose it, or embed:}\\
+\cde{dat = d3Fetch.json(url + \{\textasciigrave MY\_KEY\textasciigrave\}}\\
+%\cde{\phantom{xxx}\textasciigrave https://api.nasa.gov/insight\_weather/}\\
+%\cde{\phantom{xxx}?api\_key=\$\{Secret(\textasciigrave MY\_KEY\textasciigrave)\}}\\
+%\cde{\phantom{xxx}\&feedtype=json\&ver=1.0\textasciigrave)}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://github.com/observablehq/stdlib}{Files}}
+\textit{Use this API to \href{https://observablehq.com/@mbostock/reading-local-files}{retrieve from local filesystem}.}\\
+\cde{viewof myText = html\textasciigrave<input type=file>\textasciigrave}\\
+\entry{35mm}{Files.text(myText)}{invoke the API}\\

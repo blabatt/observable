@@ -1,0 +1,58 @@
+\section{Literals}
+
+\textit{No matter the language below, observable always requires ``tagging'' the ``\href{https://exploringjs.com/es6/ch_template-literals.html\#\_tagged-template-literals}{template literal},'' by prefixing the target language prior to the template-demarcating graves (}\cde{\textasciigrave}\textit{).}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{}{Markdown}}
+\textit{(See separate section on md.)}\\
+\cde{md\textasciigrave \# Page Title\textasciigrave}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://observablehq.com/@observablehq/introduction-to-html?collection=@observablehq/notebook-fundamentals}{HTML}}
+\cde{html\textasciigrave <p>I am a <i>par</i> element!</p>\textasciigrave}\\
+\entry{50mm}{html\textasciigrave<style> }{this css}\\
+\entry{50mm}{\phantom{xx}.highlight \{background: yellow;\}}{applies}\\
+\entry{50mm}{</style>\textasciigrave}{globally}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://observablehq.com/@observablehq/htl}{SVG}}
+\cde{svg\textasciigrave<svg width=60 height=60>}\\
+\cde{\phantom{xxx}\$\{svg.fragment\textasciigrave }\\
+\cde{\phantom{xxxxx}<circle cx=30 cy=30 r=30></circle>\textasciigrave}\\
+\cde{</svg>\textasciigrave}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://observablehq.com/@observablehq/graphviz}{GraphViz / DOT}}
+\cde{dot\textasciigrave digraph \{ a -> b; \}\textasciigrave}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\TeX}
+\entry{35mm}{tex\textasciigrave E = mc\textasciicircum 2\textasciigrave}{inline}\\
+\entry{35mm}{tex.block\textasciigrave \dots \textasciigrave}{block-mode}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Lorem Ipsem}
+\textit{Really just a cell import from \href{https://observablehq.com/@jashkenas/lorem-ipsum}{here}, then:}\\
+\cde{md\textasciigrave \$\{loremipsum(\{using: "Bro Ipsum"\})\}\textasciigrave}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{https://tinyurl.com/u6y8b4pd}{Template Expansion}}
+\textit{All literals are actually templates that are parsed into intermediate languages (like \TeX\ and markdown) and ultimately resolved to html. Prior to parsing, observable expands ``interpolated expressions'' (those inside \cde{\$\{\dots\}}) into their ``substituted'' string value.}\\
+\cde{\textasciigrave <h1>Hello \$\{value\}</h1>\textasciigrave }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\href{}{Nesting Literals}}
+\entry{45mm}{md\textasciigrave Some tex: \$\{tex\textasciigrave \textbackslash tau\textasciigrave\}.\textasciigrave}{\TeX\ in md}\\
+
+\textit{Deep nesting: given observable / js variable:}\\
+\cde{array = [tex\textasciigrave A=1\textasciigrave, tex\textasciigrave A=2\textasciigrave]}\\
+\textit{\dots nest \TeX\ inside js inside html inside js inside html inside md!}\\
+\cde{md\textasciigrave A list of elements:}\\
+\cde{<ul>}\\
+\cde{\phantom{xxx}\$\{clone(array).map(a => html\textasciigrave<li>\$\{a\}\textasciigrave)\}}\\
+\cde{</ul>\textasciigrave}\\

@@ -1,0 +1,82 @@
+\section{\href{https://observablehq.com/@observablehq/inputs}{Inputs}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{General Use}
+\entry{45mm}{import \{Checkbox\} from \dots}{from \href{https://observablehq.com/@observablehq/inputs}{here}}\\
+\entry{45mm}{data = [\dots]; options = \{\dots\};}{setup}\\
+\entry{52mm}{viewof cb = Checkbox(data, options)}{create}\\
+\entry{45mm}{html\textasciigrave checked: }{reference}\\
+\cde{\phantom{xxxx}\$\{cb.map(c => html\textasciigrave \$\{c\}\textasciigrave)\}\textasciigrave}\\
+
+\textit{Most canonical inputs have the 2 arguments above, where }\cde{data}\textit{ is an array, and }\cde{options}\textit{ is an object-literal, as described below.}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Options}
+\textit{Most inputs allow arbitrarily-formatted }\cde{data}\textit{ but then require using non-trivial }\cde{keysof}, \cde{valuesof}\textit{ closures for data extraction. Other options are mostly cosmetic.}\\
+
+\addtolength{\tabcolsep}{-3pt}    
+{\footnotesize
+\rowcolors{0}{gray!20}{white}
+\begin{tabular}{@{} rp{3mm}p{3mm}p{3mm}p{3mm}p{3mm}p{3mm}p{3mm}p{3mm}p{3mm}p{3mm} @{}}
+                & \rot{Button}  & \rot{Chckbx}  & \rot{Toggle}  & \rot{Radio}   & \rot{Range}   & \rot{Search}  & \rot{Text}    & \rot{Textar.} & \rot{Select}  & \rot{Table}   \\
+    Label       & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    &               \\
+    Value       & \checkmark    & \checkmark    & \checkmark    &               & \checkmark    &               & \checkmark    & \checkmark    & \checkmark    & \checkmark    \\
+    Width       & \checkmark    &               &               &               & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    \\
+    Disabl'd    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    & \checkmark    &               \\
+    Sort        &               & \checkmark    &               & \checkmark    &               &               &               &               & \checkmark    & \checkmark    \\
+    Unique      &               & \checkmark    &               & \checkmark    &               &               &               &               & \checkmark    &               \\
+    Locale      &               & \checkmark    &               & \checkmark    &               & \checkmark    &               &               & \checkmark    &               \\
+    Format      &               & \checkmark    &               & \checkmark    & \checkmark    & \checkmark    &               &               & \checkmark    & \checkmark    \\
+    Keyof       &               & \checkmark    &               & \checkmark    &               &               &               &               & \checkmark    &               \\
+    Valueof     &               & \checkmark    &               & \checkmark    &               &               &               &               & \checkmark    &               \\
+    Plachldr    &               &               &               &               & \checkmark    & \checkmark    & \checkmark    & \checkmark    &               &               \\
+    Columns     &               &               &               &               &               & \checkmark    &               &               &               & \checkmark    \\
+    Sp'lch'k    &               &               &               &               &               & \checkmark    & \checkmark    & \checkmark    &               &               \\
+    Requ'd      &               &               &               &               &               & \checkmark    & \checkmark    & \checkmark    &               & \checkmark    \\
+    Rows        &               &               &               &               &               &               &               & \checkmark    &               & \checkmark    \\
+    Datalst     &               &               &               &               &               & \checkmark    & \checkmark    &               &               &               \\
+    Multip.     &               &               &               &               &               &               &               &               & \checkmark    & \checkmark    \\
+    Reado'ly    &               &               &               &               &               &               & \checkmark    & \checkmark    &               &               \\
+    Minlen.     &               &               &               &               &               &               & \checkmark    & \checkmark    &               &               \\
+    Maxlen.     &               &               &               &               &               &               & \checkmark    & \checkmark    &               &               \\
+    Validate    &               &               &               &               &               &               & \checkmark    & \checkmark    &               &               \\
+    Submit      &               &               &               &               &               &               & \checkmark    & \checkmark    &               &               \\
+\end{tabular}}
+\addtolength{\tabcolsep}{3pt}
+\\
+\textit{The following are exclusive to one input type:}
+\begin{itemize}
+    \item button \tabto{15mm} required, reduce
+    \item toggle \tabto{15mm} values
+    \item range \tabto{15mm} step, transform, invert
+    \item select \tabto{15mm} size
+    \item text \tabto{15mm} type, pattern
+    \item search \tabto{15mm} query, filter
+    \item table \tabto{15mm} reverse, align, maxwidth, height, maxHeight, layout
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Idiosyncratic / User-defined Inputs}
+
+
+
+\begin{minipage}{3cm}
+\begin{itemize}
+    \item \href{https://observablehq.com/@mootari/2d-slider}{2D Slider}
+    \item \href{https://observablehq.com/@rreusser/binary-input}{Binary Input}
+    \item \href{https://observablehq.com/@yurivish/ternary-slider}{Ternary Slider}
+    \item \href{https://observablehq.com/@rreusser/fine-range}{Fine-range Slider}
+    \item \href{https://observablehq.com/@mbostock/form-input}{Form Input}
+    \item \href{https://observablehq.com/@mootari/range-slider}{Range Slider}
+\end{itemize}
+\end{minipage}\begin{minipage}{3cm}
+\begin{itemize}
+    \item \href{https://observablehq.com/@mbostock/scrubber}{Scrubber}
+    \item \href{https://observablehq.com/@oscar6echo/player}{Player}
+    \item \href{https://observablehq.com/@bumbeishvili/input-groups}{Inputs in a Grid}
+    \item \href{https://observablehq.com/@mbostock/copier}{Copier}
+    \item \href{https://observablehq.com/@awhitty/fips-county-code-brush}{US Counties}
+    \item \href{https://observablehq.com/@bobkerns/elements-input}{Periodic Table}
+\end{itemize}
+\end{minipage}

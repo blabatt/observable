@@ -1,7 +1,33 @@
 \section{Compiler}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Grammar}
-\code{cell:}\\
-\code{\qquad NamedCell}\\
-\code{}\\
+\subsection*{Grammar}
+\cde{Cell:}\\
+\cde{\qquad ImportCell}\\
+\cde{\qquad NamedCell}\\
+\cde{\qquad Block}\\
+\cde{\qquad Expression}\\
+\cde{ImportCell:}\\
+\cde{\qquad import NamedImports}\\
+\cde{\phantom{xxxxxxxxxx}from moduleSpecifier}\\
+\cde{\qquad import NamedImports }\\
+\cde{\phantom{xxxxxxxxxx}with namedImports} \cde{\phantom{xxxxxxxxxx}from moduleSpecifier}\\
+\cde{NamedCell:}\\
+\cde{\qquad Identifier = Block}\\
+\cde{\qquad Identifier = Expression}\\  
+\cde{\qquad FunctionExpression}\\
+\cde{\qquad ClassExpression}\\
+\cde{Identifier:}\\
+\cde{\qquad IdentifierName}\\
+\cde{\qquad viewof IdentifierName}\\
+\cde{\qquad mutable IdentifierName}\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Parser}
+\textit{See examples \href{https://github.com/observablehq/parser}{here}, or do the following to see how parser creates a json tree or your choosing:}\\
+
+
+\cde{import \{parseCell\} from "@observablehq/parser";}\\
+\cde{const cell = parseCell(\textasciigrave hello = "world"\textasciigrave);}\\
